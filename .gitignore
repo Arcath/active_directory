@@ -1,2 +1,4 @@
 html
 pkg
+.DS_STORE
+spec/test_values.yml
