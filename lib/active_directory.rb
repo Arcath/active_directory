@@ -81,5 +81,15 @@ module ActiveDirectory
       :memberof => :GroupDnArray,
       :member => :MemberDnArray,
     },
+    
+    #Computer Objects
+    :Computer => {
+        :objectguid => :Binary,
+        :whencreated => :Date,
+        :whenchanged => :Date,
+        :objectsid => :Binary,
+        :memberof => :GroupDnArray,
+        :member => :MemberDnArray,
+    }
   }
 end
