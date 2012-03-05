@@ -20,6 +20,8 @@
 
 require 'net/ldap'
 
+require 'active_directory/config'
+
 require 'active_directory/base.rb'
 require 'active_directory/container.rb'
 require 'active_directory/member.rb'
@@ -38,7 +40,16 @@ require 'active_directory/field_type/group_dn_array.rb'
 require 'active_directory/field_type/member_dn_array.rb'
 
 module ActiveDirectory
-  
+    
+    def self.configure
+        @config = Config.new
+        yield(@config)
+        ActiveDirectory::Base.setup(@config.settings_hash)
+    end
+    
+    def self.config
+        @config
+    end
   #Special Fields
   def self.special_fields
     @@special_fields

@@ -580,6 +580,5 @@ module ActiveDirectory
 				super
 			end
 		end
-
 	end
 end
