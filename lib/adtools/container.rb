@@ -18,7 +18,7 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	#
 	# The ActiveDirectory::Container class represents a more malleable way
 	# of dealing with LDAP Distinguished Names (dn), like

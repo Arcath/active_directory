@@ -18,22 +18,23 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	module FieldType
-		class DnArray
+		class Password
 			#
-			# Encodes an array of objects into a list of dns
-			# 
-			def self.encode(obj_array)
-				obj_array.collect { |obj| obj.dn }
+			# Encodes an unencrypted password into an encrypted password
+			# that the Active Directory server will understand.
+			#
+			def self.encode(password)
+				("\"#{password}\"".split(//).collect { |c| "#{c}\000" }).join
 			end
 
 			#
-			# Decodes a list of DNs into the objects that they are
+			# Always returns nil, since you can't decrypt the User's encrypted
+			# password.
 			#
-			def self.decode(dn_array)
-				# How to do user or group?
-				Base.find(:all, :distinguishedname => dn_array)
+			def self.decode(hashed)
+				nil
 			end
 		end
 	end

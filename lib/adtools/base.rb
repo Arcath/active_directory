@@ -18,7 +18,7 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	#
 	# Base class for all Ruby/ActiveDirectory Entry Objects (like User and Group)
 	#
@@ -512,7 +512,7 @@ module ActiveDirectory
 		def self.get_field_type(name)
 			#Extract class name
 			throw "Invalid field name" if name.nil?
-			type = ::ActiveDirectory.special_fields[class_name.to_sym][name.to_s.downcase.to_sym]
+			type = ::Adtools.special_fields[class_name.to_sym][name.to_s.downcase.to_sym]
 			type.to_s unless type.nil?
 		end
 

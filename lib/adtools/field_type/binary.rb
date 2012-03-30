@@ -18,7 +18,7 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
   module FieldType
     class Binary
       #

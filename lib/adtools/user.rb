@@ -18,7 +18,7 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	class User < Base
 		include Member
 

@@ -18,7 +18,7 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	module Member
 		#
 		# Returns true if this member (User or Group) is a member of

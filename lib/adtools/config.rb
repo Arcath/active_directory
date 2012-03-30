@@ -1,4 +1,4 @@
-module ActiveDirectory
+module Adtools
     class Config
         attr_accessor :domain, :port, :base, :server, :query_user, :query_password
         

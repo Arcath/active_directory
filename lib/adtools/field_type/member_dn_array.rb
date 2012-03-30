@@ -18,22 +18,30 @@
 #
 #++ license
 
-module ActiveDirectory
-  module FieldType
-    class Date
-      #
-      # Converts a time object into an ISO8601 format compatable with Active Directory
-      # 
-      def self.encode(local_time)
-        local_time.strftime('%Y%m%d%H%M%S.0Z')
-      end
+module Adtools
+	module FieldType
+		class MemberDnArray
+			#
+			# Encodes an array of objects into a list of dns
+			# 
+			def self.encode(obj_array)
+				obj_array.collect { |obj| obj.dn }
+			end
 
-      #
-      # Decodes an Active Directory date when stored as ISO8601
-      #
-      def self.decode(remote_time)
-        Time.parse(remote_time)
-      end
-    end
-  end
+			#
+			# Decodes a list of DNs into the objects that they are
+			#
+			def self.decode(dn_array)
+				# Ensures that the objects are cast correctly
+				users = User.find(:all, :distinguishedname => dn_array)
+				groups = Group.find(:all, :distinguishedname => dn_array)
+
+				arr = Array.new
+				arr << users unless users.nil?
+				arr << groups unless groups.nil?
+
+				return arr.flatten
+			end
+		end
+	end
 end

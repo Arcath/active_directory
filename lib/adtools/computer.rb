@@ -18,7 +18,7 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	class Computer < Base
 		def self.filter # :nodoc:
 			Net::LDAP::Filter.eq(:objectClass,'computer')

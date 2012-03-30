@@ -18,9 +18,9 @@
 #
 #++ license
 
-module ActiveDirectory
+module Adtools
 	module FieldType
-		class GroupDnArray
+		class DnArray
 			#
 			# Encodes an array of objects into a list of dns
 			# 
@@ -33,7 +33,7 @@ module ActiveDirectory
 			#
 			def self.decode(dn_array)
 				# How to do user or group?
-				Group.find(:all, :distinguishedname => dn_array)
+				Base.find(:all, :distinguishedname => dn_array)
 			end
 		end
 	end

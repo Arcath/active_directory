@@ -1,20 +1,26 @@
-= Active Directory
+= Adtools
 
 Ruby bindings for Microsofts Active Directory (LDAP)
 
 == Install
 
-This fork has no installer yet, to use it please vendor it in your project.
+For use in scripts:
+
+    $ gem install adtools
+
+For rails / anything using bundler add this to your Gemfile:
+
+    gem 'adtools'
 
 == Usage
 
-First off you need to configure Active Directory, to do this call .configure:
+First off you need to configure Adtools, to do this call .configure:
 
-    ActiveDirectory.configure do |c|
+    Adtools.configure do |c|
         c.domain = "example.com"
         c.query_user = "Administrator"
         c.query_password = "P4$$w0rd"
     end
 
-You can also specify a port, server and base string, but ActiveDirectory will assume these for you and _you may not need them_
+You can also specify a port, server and base string, but Adtools will assume these for you and _you may not need them_
 

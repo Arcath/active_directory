@@ -1,4 +1,4 @@
-require 'lib/active_directory'  # Load the Gem
+require 'lib/adtools'  # Load the Gem
 require 'yaml'                  # Load YAML (for test_values.yml)
 
 def test_value(obj, val)
@@ -7,7 +7,7 @@ def test_value(obj, val)
 end
 
 def standard_connection
-    ActiveDirectory.configure do |c|
+    Adtools.configure do |c|
         c.domain = test_value("domain","domain")
         c.base = test_value("domain", "base")
         c.port = test_value("domain", "port")
