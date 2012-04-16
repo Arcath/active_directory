@@ -1,3 +1,3 @@
 module Adtools
-    Version = '2.0.0pre'
+    Version = '0.0.1pre'
 end
